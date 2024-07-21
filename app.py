@@ -7,6 +7,15 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return '''
+        
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: Arial, sans-serif;
+            }
+        </style>
+    
         <h1>Rule 34 Jeopardy</h1>
         <form action="/scrape" method="post">
             <label for="game_id">Game ID:</label>
