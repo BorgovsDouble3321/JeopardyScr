@@ -1,6 +1,6 @@
 Flask==2.3.2
-selenium==3.141.0  # Ältere Version von Selenium
-webdriver-manager==3.4.2  # Ältere Version von webdriver-manager
+selenium
+webdriver-manager
 requests==2.31.0
 beautifulsoup4==4.12.2
 gunicorn
