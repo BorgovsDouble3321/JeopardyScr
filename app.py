@@ -53,6 +53,9 @@ def scrape():
                 padding: 0;
                 margin: 0 20px;
             }
+            li::marker {
+                color: white;
+            }
             a {
                 color: white;
                 display: block;
