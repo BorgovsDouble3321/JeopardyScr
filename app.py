@@ -49,7 +49,7 @@ def scrape():
                 justify-content: center;
             }
             ul {
-                list-style-type: none;
+                list-style-type: disc;
                 padding: 0;
                 margin: 0 20px;
             }
