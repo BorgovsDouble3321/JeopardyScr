@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def home():
     return '''
@@ -15,7 +14,6 @@ def home():
             <button type="submit">Grab</button>
         </form>
     '''
-
 
 @app.route('/scrape', methods=['POST'])
 def scrape():
@@ -37,10 +35,35 @@ def scrape():
         columns[i % num_columns].append(answer)
 
     return render_template_string('''
+        <style>
+            body {
+                background-color: black;
+                color: white;
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                text-align: center;
+            }
+            .columns {
+                display: flex;
+                justify-content: center;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0 20px;
+            }
+            a {
+                color: white;
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+            }
+        </style>
         <h1>Jeopardy Antworten</h1>
-        <div style="display: flex;">
+        <div class="columns">
             {% for column in columns %}
-                <ul style="margin-right: 20px;">
+                <ul>
                     {% for answer in column %}
                         <li>{{ answer }}</li>
                     {% endfor %}
@@ -49,7 +72,6 @@ def scrape():
         </div>
         <a href="/">Zurück zur Startseite</a>
     ''', columns=columns)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
