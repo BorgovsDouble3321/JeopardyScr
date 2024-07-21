@@ -20,6 +20,7 @@ def home():
         <form action="/scrape" method="post">
             <label for="game_id">Game ID:</label>
             <input type="text" id="game_id" name="game_id">
+            <input type="number" id="columns_amount" name="columns_amount" min="1" max="15" step="1" placeholder="0">
             <button type="submit">Grab</button>
         </form>
     '''
@@ -27,6 +28,7 @@ def home():
 @app.route('/scrape', methods=['POST'])
 def scrape():
     jeopardy_id = request.form['game_id']
+    columns_amount = request.form['columns_amount']
     url = f'https://jeopardylabs.com/play/{jeopardy_id}'
 
     response = requests.get(url)
